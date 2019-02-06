@@ -1,6 +1,6 @@
 
-import java.util.ArrayList;
-public class guitarra
+
+public class Guitarra
 {
     private int numeroCuerdas;
     private double precio;
@@ -10,9 +10,9 @@ public class guitarra
     /**
      * Constructor for objects of class guitarra
      */
-    public guitarra(int numeroIdentificativo, int numCuerdas, double elPrecio, String laMarca, boolean electrica)
+    public Guitarra( int numCuerdas, double elPrecio, String laMarca, boolean electrica)
     {
-        int identificador = numeroIdentificativo;
+        int identificador = 1;
         numeroCuerdas = numCuerdas;
         precio = elPrecio;
         marca = laMarca;
@@ -50,5 +50,6 @@ public class guitarra
     public void setEsElectrica(boolean electrica) {
         esElectrica = electrica;
     }
+    
 
 }
