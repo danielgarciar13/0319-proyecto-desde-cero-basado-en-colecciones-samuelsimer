@@ -11,8 +11,7 @@ public class Guitarra
      * Constructor for objects of class guitarra
      */
     public Guitarra( int numCuerdas, double elPrecio, String laMarca, boolean electrica)
-    {
-        int identificador = 1;
+    {  
         numeroCuerdas = numCuerdas;
         precio = elPrecio;
         marca = laMarca;
