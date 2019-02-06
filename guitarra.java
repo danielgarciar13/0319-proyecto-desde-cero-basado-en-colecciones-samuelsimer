@@ -18,6 +18,37 @@ public class guitarra
         marca = "";
         esElectrica = false;
     }
-
+    
+    public double getPrecio() {
+        return precio;
+    }
+    
+    public void setPrecio(double elPrecio) {
+        precio = elPrecio;
+    }
+    
+    public int getNumeroCuerdas() {
+        return numeroCuerdas;
+    }
+    
+    public void setNumeroCuerdas(int numCuerdas) {
+        numeroCuerdas = numCuerdas;
+    }
+    
+    public String getMarca() {
+        return marca;
+    }
+    
+    public void setMarca(String laMarca) {
+        marca = laMarca;
+    }
+    
+    public boolean getEsElectrica() {
+        return esElectrica;
+    }
+    
+    public void setEsElectrica(boolean electrica) {
+        esElectrica = electrica;
+    }
   
 }
