@@ -50,5 +50,14 @@ public class Guitarra
         esElectrica = electrica;
     }
     
-
+    public String caracteristicas() {
+        String tareasADevolver = "";
+        String tipoGuitarra = "electrica";
+        if (esElectrica == false){
+                tipoGuitarra = "noElectrica";
+            }
+        tareasADevolver += marca + ", " + precio + "€" + numeroCuerdas + ", " + tipoGuitarra;
+        return tareasADevolver;
+    }    
+    
 }
