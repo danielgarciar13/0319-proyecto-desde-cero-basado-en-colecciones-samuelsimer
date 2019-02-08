@@ -107,6 +107,12 @@ public class tiendaGuitarras
 
         return textoADevolver;
     }
-
+    
+    public void setModificarprecio(double nuevoPrecio, int numeroId){
+       
+           guitarras.get(numeroId - 1).setPrecio(nuevoPrecio);
+           
+        
+    } 
 
 }
