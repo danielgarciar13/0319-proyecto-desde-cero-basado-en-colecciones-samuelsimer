@@ -26,7 +26,7 @@ public class tiendaGuitarras
         }
         return tareasADevolver;
     } 
-    
+
     public String getGuitarrasPorPrecio() {
         String textoADevolver = "";
 
@@ -35,8 +35,7 @@ public class tiendaGuitarras
             guitarrasOrdenadas.add(guitarra);
         }
 
-        //Ahora ordeno el ArrayList tareasOrdenadas siguiendo el algoritmo
-        //de seleccion que se explica en el video
+        //Ahora ordeno el ArrayList guitarrasOrdenadas para quedevuelva las guitarras ordenadas por precio
         int posicionAMirar = 0;
         while (posicionAMirar < guitarrasOrdenadas.size() - 1) {
             int posicionMenor = posicionAMirar;
@@ -65,6 +64,49 @@ public class tiendaGuitarras
         }
 
         return textoADevolver;
-    }     
+    }
+
+    public String getGuitarrasPorPrecioSiSonelectricas() {
+        String textoADevolver = "";
+
+        ArrayList<Guitarra> guitarrasOrdenadas = new ArrayList<Guitarra>();
+        for (Guitarra guitarra : guitarras) {
+            if(guitarra.getEsElectrica() == true){
+                guitarrasOrdenadas.add(guitarra);
+            }   
+        }
+
+        //Ahora ordeno el ArrayList guitarrasOrdenadas para que solo aparezcan
+        //las guitarras electricas ordenadas por precio
+        int posicionAMirar = 0;
+        while (posicionAMirar < guitarrasOrdenadas.size() - 1) {
+            int posicionMenor = posicionAMirar;
+            double valorMaxPrecioHastaAhora = guitarrasOrdenadas.get(posicionMenor).getPrecio();
+
+            int posicionPosibleMenor = posicionAMirar + 1; 
+            while (posicionPosibleMenor < guitarrasOrdenadas.size()) {
+                if (guitarrasOrdenadas.get(posicionPosibleMenor).getPrecio() 
+                < valorMaxPrecioHastaAhora) {
+                    posicionMenor = posicionPosibleMenor;
+                    valorMaxPrecioHastaAhora = guitarrasOrdenadas.get(posicionPosibleMenor).getPrecio();
+                }
+                posicionPosibleMenor++;
+            }
+
+            Guitarra tareaTemporal = guitarrasOrdenadas.get(posicionAMirar);
+            guitarrasOrdenadas.set(posicionAMirar, guitarrasOrdenadas.get(posicionMenor));;
+            guitarrasOrdenadas.set(posicionMenor, tareaTemporal);
+
+            posicionAMirar++;
+        }
+
+        for (Guitarra guitarra : guitarrasOrdenadas) {
+            textoADevolver += guitarra.getMarca() + " ";
+            textoADevolver += guitarra.getPrecio() + "\n";
+        }
+
+        return textoADevolver;
+    }
+
 
 }
