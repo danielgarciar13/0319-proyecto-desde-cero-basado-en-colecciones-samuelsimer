@@ -40,7 +40,6 @@ public class tiendaGuitarras
         while (posicionAMirar < guitarrasOrdenadas.size() - 1) {
             int posicionMenor = posicionAMirar;
             double valorMaxPrecioHastaAhora = guitarrasOrdenadas.get(posicionMenor).getPrecio();
-
             int posicionPosibleMenor = posicionAMirar + 1; 
             while (posicionPosibleMenor < guitarrasOrdenadas.size()) {
                 if (guitarrasOrdenadas.get(posicionPosibleMenor).getPrecio() 
@@ -107,12 +106,10 @@ public class tiendaGuitarras
 
         return textoADevolver;
     }
-    
-    public void setModificarprecio(double nuevoPrecio, int numeroId){
-       
-           guitarras.get(numeroId - 1).setPrecio(nuevoPrecio);
-           
-        
-    } 
 
+    public void setModificarprecio(double nuevoPrecio, int numeroId){
+
+        guitarras.get(numeroId - 1).setPrecio(nuevoPrecio);
+
+    } 
 }
