@@ -36,16 +36,16 @@ public class tiendaGuitarras
         }
 
         //Ahora ordeno el ArrayList guitarrasOrdenadas para quedevuelva las guitarras ordenadas por precio
-        int p, j = 0;
+        int contador, contador2 = 0;
         Guitarra aux;
-        for (p = 1; p < guitarrasOrdenadas.size(); p++) {
-            aux = guitarrasOrdenadas.get(p);
-            j = p - 1;
-            while ((j >= 0) && (aux.getPrecio() < guitarrasOrdenadas.get(j).getPrecio())) {
-                guitarrasOrdenadas.set((j + 1),guitarrasOrdenadas.get(j));
-                j--;
+        for (contador = 1; contador < guitarrasOrdenadas.size(); contador++) {
+            aux = guitarrasOrdenadas.get(contador);
+            contador2 = contador - 1;
+            while ((contador2 >= 0) && (aux.getPrecio() < guitarrasOrdenadas.get(contador2).getPrecio())) {
+                guitarrasOrdenadas.set((contador2 + 1),guitarrasOrdenadas.get(contador2));
+                contador2--;
             }
-            guitarrasOrdenadas.set((j + 1), aux);
+            guitarrasOrdenadas.set((contador2 + 1), aux);
         }
 
         for (Guitarra guitarra : guitarrasOrdenadas) {
