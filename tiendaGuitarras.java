@@ -36,25 +36,16 @@ public class tiendaGuitarras
         }
 
         //Ahora ordeno el ArrayList guitarrasOrdenadas para quedevuelva las guitarras ordenadas por precio
-        int posicionAMirar = 0;
-        while (posicionAMirar < guitarrasOrdenadas.size() - 1) {
-            int posicionMenor = posicionAMirar;
-            double valorMaxPrecioHastaAhora = guitarrasOrdenadas.get(posicionMenor).getPrecio();
-            int posicionPosibleMenor = posicionAMirar + 1; 
-            while (posicionPosibleMenor < guitarrasOrdenadas.size()) {
-                if (guitarrasOrdenadas.get(posicionPosibleMenor).getPrecio() 
-                < valorMaxPrecioHastaAhora) {
-                    posicionMenor = posicionPosibleMenor;
-                    valorMaxPrecioHastaAhora = guitarrasOrdenadas.get(posicionPosibleMenor).getPrecio();
-                }
-                posicionPosibleMenor++;
+        int p, j = 0;
+        Guitarra aux;
+        for (p = 1; p < guitarrasOrdenadas.size(); p++) {
+            aux = guitarrasOrdenadas.get(p);
+            j = p - 1;
+            while ((j >= 0) && (aux.getPrecio() < guitarrasOrdenadas.get(j).getPrecio())) {
+                guitarrasOrdenadas.set((j + 1),guitarrasOrdenadas.get(j));
+                j--;
             }
-
-            Guitarra tareaTemporal = guitarrasOrdenadas.get(posicionAMirar);
-            guitarrasOrdenadas.set(posicionAMirar, guitarrasOrdenadas.get(posicionMenor));;
-            guitarrasOrdenadas.set(posicionMenor, tareaTemporal);
-
-            posicionAMirar++;
+            guitarrasOrdenadas.set((j + 1), aux);
         }
 
         for (Guitarra guitarra : guitarrasOrdenadas) {
