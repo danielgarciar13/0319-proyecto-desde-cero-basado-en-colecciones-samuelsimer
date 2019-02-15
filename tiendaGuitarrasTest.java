@@ -1,5 +1,3 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -52,6 +50,10 @@ public class tiendaGuitarrasTest
         assertEquals("Guitarra barata 120.0\nGuitarra normal 1000.0\nGuitarra cara 2500.0\nGuitarra de Elvis Presley 8000000.0\n", tiendaGu1.getGuitarrasPorPrecio());
         tiendaGu1.agregarGuitarra("Guitarra reciclada", 4, 20, true);
         assertEquals("Guitarra reciclada 20.0\nGuitarra barata 120.0\nGuitarra normal 1000.0\nGuitarra cara 2500.0\nGuitarra de Elvis Presley 8000000.0\n", tiendaGu1.getGuitarrasPorPrecio());
+        tiendaGu1.agregarGuitarra("Guitarra verde", 4, 60, true);
+        tiendaGu1.agregarGuitarra("Guitarra roja", 4, 1750, true);
+        tiendaGu1.agregarGuitarra("Guitarra azul", 4, 1, true);
+        assertEquals("Guitarra azul 1.0\nGuitarra reciclada 20.0\nGuitarra verde 60.0\nGuitarra barata 120.0\nGuitarra normal 1000.0\nGuitarra roja 1750.0\nGuitarra cara 2500.0\nGuitarra de Elvis Presley 8000000.0\n", tiendaGu1.getGuitarrasPorPrecio());
     }
 }
 
