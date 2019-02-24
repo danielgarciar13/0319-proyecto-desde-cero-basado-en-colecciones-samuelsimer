@@ -1,12 +1,11 @@
 import java.util.ArrayList;
-public class tiendaGuitarras
+import java.util.HashMap;
+public class TiendaGuitarras
 {
     private ArrayList<Guitarra> guitarras;
     int identificador = 0;
-
-    public tiendaGuitarras() {
-        guitarras = new ArrayList<Guitarra>(); 
-
+    public TiendaGuitarras() {
+        guitarras = new ArrayList<Guitarra>();
     } 
 
     public void agregarGuitarra(String textoGuitarra, int cuerdas, double euros, boolean electrica ) {
@@ -89,18 +88,50 @@ public class tiendaGuitarras
 
             posicionAMirar++;
         }
-
         for (Guitarra guitarra : guitarrasOrdenadas) {
             textoADevolver += guitarra.getMarca() + " ";
             textoADevolver += guitarra.getPrecio() + "\n";
         }
-
         return textoADevolver;
     }
 
     public void setModificarprecio(double nuevoPrecio, int numeroId){
-
         guitarras.get(numeroId - 1).setPrecio(nuevoPrecio);
-
-    } 
+    }
+    
+    public String getGuitarrasPorAgrupacionesDePrecio(){
+        String ADevolver = "";
+        HashMap<String, ArrayList<Guitarra>> mapaGuitarras = new HashMap<String, ArrayList<Guitarra>>();
+        ArrayList<Guitarra> muyBaratas = new ArrayList<Guitarra>();
+        ArrayList<Guitarra> baratas = new ArrayList<Guitarra>();
+        ArrayList<Guitarra> caras = new ArrayList<Guitarra>();
+        ArrayList<Guitarra> muyCaras = new ArrayList<Guitarra>();
+        for(int c = 0; c < guitarras.size(); c ++){
+            if(guitarras.get(c).getPrecio() < 301){
+                muyBaratas.add(guitarras.get(c));
+            }
+            if(guitarras.get(c).getPrecio() > 300 && guitarras.get(c).getPrecio() < 601){
+                baratas.add(guitarras.get(c));
+            }
+            if(guitarras.get(c).getPrecio() > 600 && guitarras.get(c).getPrecio() < 1201){
+                caras.add(guitarras.get(c));
+            }
+            if(guitarras.get(c).getPrecio() > 1201){
+                muyCaras.add(guitarras.get(c));
+            }
+        }
+        mapaGuitarras.put("Muy baratas", muyBaratas);
+        mapaGuitarras.put("Baratas", baratas);
+        mapaGuitarras.put("Caras", caras);
+        mapaGuitarras.put("Muy caras", muyCaras);
+        for(String guitarra : mapaGuitarras.keySet()){
+            ADevolver += guitarra + ":" + "\n";
+            for(int c = 0; c < mapaGuitarras.get(guitarra).size(); c ++){
+                ADevolver += mapaGuitarras.get(guitarra).get(c).caracteristicas() + "\n";
+            }
+            ADevolver += "\n";
+        }
+        System.out.print(ADevolver);
+        return ADevolver;
+    }
 }

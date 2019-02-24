@@ -1,5 +1,3 @@
-
-
 public class Guitarra
 {
     private int numeroCuerdas;
@@ -56,7 +54,7 @@ public class Guitarra
         if (esElectrica == false){
                 tipoGuitarra = "noElectrica";
             }
-        tareasADevolver += marca + ", " + precio + "€, " + numeroCuerdas + ", " + tipoGuitarra;
+        tareasADevolver += marca + ", " + precio + ", " + numeroCuerdas + ", " + tipoGuitarra;
         return tareasADevolver;
     }    
     
